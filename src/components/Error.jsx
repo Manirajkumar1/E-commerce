@@ -1,5 +1,6 @@
 import { IoIosFootball } from "react-icons/io";
 import { useRouteError } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function Error() {
     const err = useRouteError()
@@ -13,7 +14,9 @@ function Error() {
         <h2 className="text-2xl">Opps Page Not Found</h2>
         <h3 className="text-xl">{err.status} - {err.statusText}</h3>
         <h3 className="text-l">{err.data}</h3>
-        <button className="bg-green-400 p-2 rounded-2xl mt-3 cursor-pointer font-semibold">Back To Home</button>
+        <Link to="/">
+        <button className="bg-green-400 hover:bg-green-500 p-2 rounded-2xl mt-3 cursor-pointer font-semibold">Back To Home</button>
+        </Link>
     </div>
   )
 }
