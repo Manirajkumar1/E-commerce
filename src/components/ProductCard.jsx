@@ -1,6 +1,7 @@
 import Product from "./Product";
 import { useEffect, useState } from "react";
 import Skeleton from "./Skeleton";
+import { Link } from "react-router-dom";
 
 const ProductCard = () => {
   const [productList, setProductList] = useState([])
@@ -15,7 +16,6 @@ const ProductCard = () => {
     const data = await fetch("https://fakestoreapi.com/products")
     const resData = await data.json()
   
-    
     setProductList(resData)
     setTempProductList(resData)
     
@@ -44,14 +44,18 @@ const ProductCard = () => {
  
   return productList.length === 0 ? <Skeleton/> : (
     <div>
-      <div className="m-2 flex gap-2">
-        <input type="text" onChange={searchInputText} value={searchText}  className="border border-gray-400 "/>
-        <button onClick={searchTextBtn}>Search</button>
+      <div className="m-3 flex gap-2 ">
+        <input type="text" onChange={searchInputText} value={searchText}  className="border border-gray-400 outline-none p-2"/>
+        <button onClick={searchTextBtn} className="bg-green-400 hover:bg-green-500 p-2 rounded text-white font-semibold cursor-pointer">Search</button>
       </div>
-      <button onClick={topRatedProduct} className="bg-red-400 text-white m-2 p-2 rounded-xl hover:bg-amber-400 cursor-pointer">Top Rated Product</button>
-      <div className="flex w-full flex-wrap">
+      <button onClick={topRatedProduct} className="bg-green-400 hover:bg-green-500 text-white  m-2 p-2 rounded-xl cursor-pointer">Top Rated Product</button>
+      <div className="flex w-full flex-wrap justify-center">
         {tempProductList.map((product) => {
-          return <Product key={product.id} product={product} />;
+          return (
+            <Link key={product.id} to={`/product/${product.id}`}>
+            <Product  product={product} />
+            </Link>
+          )
         })}
       </div>
     </div>

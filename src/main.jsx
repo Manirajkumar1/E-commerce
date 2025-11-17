@@ -8,6 +8,7 @@ import Men from "./components/Men.jsx";
 import Women from "./components/Women.jsx";
 import Error from "./components/Error.jsx";
 import ProductCard from "./components/ProductCard.jsx";
+import ProductDetails from "./components/ProductDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/women",
         element: <Women />,
+      },
+      {
+        path: "/product/:productId",
+        element: <ProductDetails/>,
       },
     ],
     errorElement: <Error />,
