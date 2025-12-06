@@ -1,16 +1,158 @@
-# React + Vite
+# 🚀 React E-Commerce Mini Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite + Tailwind CSS + Redux Toolkit + React Router
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a modern and fast **E-commerce UI application** built with React, Vite, Tailwind CSS, Redux Toolkit, and FakeStore API.
+It includes product listing, search, filters, product detail page, and cart functionality.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+### 🛍 Product Listing
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Fetches real-time products from FakeStore API
+* Skeleton loader while fetching
+* Clean product cards
+* Higher Order Component (HOC) adds “Best Seller” badge
+
+### 🔍 Search & Filters
+
+* Search products by title
+* Top-Rated (rating ≥ 4) filter toggle
+* Category-based pages (Men / Women / Kid)
+
+### 🛒 Shopping Cart (Redux Toolkit)
+
+* Add items to cart
+* Cart count visible in navigation bar
+* Clear / Remove actions included in slice
+
+### 🌙 Theme Toggle
+
+* Light / Dark mode button with icons
+
+### 🧭 Routing (React Router v7)
+
+* Home
+* Men
+* Women
+* Kid
+* About
+* Product Details
+* Error page
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology             | Role                          |
+| ---------------------- | ----------------------------- |
+| **React 19**           | UI components                 |
+| **Vite 7**             | Fast development & build tool |
+| **Redux Toolkit**      | Global state management       |
+| **Tailwind CSS 4**     | Styling                       |
+| **React Router DOM 7** | Client-side routing           |
+| **FakeStore API**      | Product data                  |
+
+---
+
+## 📂 Folder Structure
+
+```
+src/
+│── components/
+│   ├── Navbar.jsx
+│   ├── ProductCard.jsx
+│   ├── ProductDetails.jsx
+│   ├── Product.jsx
+│   ├── Skeleton.jsx
+│   ├── Accordian.jsx
+│   ├── Men.jsx / Women.jsx / Kid.jsx
+│   └── About.jsx / Error.jsx
+│
+│── store/
+│   ├── CartSlice.js
+│   └── Store.js
+│
+│── App.jsx
+│── main.jsx
+│── index.css
+```
+
+---
+
+## 🚀 Installation & Setup
+
+### 1️⃣ Clone the repo
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Start development server
+
+```bash
+npm run dev
+```
+
+### 4️⃣ Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 🌐 API Used
+
+This project uses **FakeStoreAPI**:
+`https://fakestoreapi.com/products`
+
+---
+
+## 🧩 Key Components Explained
+
+### **ProductCard.jsx**
+
+* Fetches all products
+* Handles search
+* Filters top-rated products
+* Uses HOC for “Best Seller” badge
+
+### **ProductDetails.jsx**
+
+* Displays detailed product info
+* Supports Add to Cart
+* Fetches data dynamically using product ID
+
+### **CartSlice.js**
+
+* `addItems`
+* `removeItems`
+* `clearItems`
+
+### **Navbar.jsx**
+
+* Navigation links
+* Cart count
+* Theme toggle
+
+---
+
+
+---
+
+## 🙌 Author
+
+Made by **Maniraj**
+
