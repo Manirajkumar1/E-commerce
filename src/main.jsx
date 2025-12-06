@@ -9,6 +9,9 @@ import Women from "./components/Women.jsx";
 import Error from "./components/Error.jsx";
 import ProductCard from "./components/ProductCard.jsx";
 import ProductDetails from "./components/ProductDetails.jsx";
+import About from "./components/About.jsx";
+import { Provider } from "react-redux";
+import appStore from "./store/Store.js";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +20,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <ProductCard/>,
+        element: <ProductCard />,
       },
       {
         path: "/kid",
         element: <KId />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/men",
@@ -33,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:productId",
-        element: <ProductDetails/>,
+        element: <ProductDetails />,
       },
     ],
     errorElement: <Error />,
@@ -41,8 +48,8 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
+    <Provider store={appStore}>
+      <RouterProvider router={router}/>
+    </Provider>
   </StrictMode>
 );

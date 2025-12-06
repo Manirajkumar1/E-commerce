@@ -2,11 +2,13 @@ import { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { IoIosSunny } from "react-icons/io";
 import { LuMoonStar } from "react-icons/lu";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [btnName, setBtnName] = useState("Light");
-
+  const cartItems = useSelector((store) => store.cart.cartItems)
+  
   let themeChange = () => {
     setBtnName((prev) => (prev === "Light" ? "Dark" : "Light"));
   };
@@ -22,9 +24,13 @@ const Navbar = () => {
           <Link to="/women">Women</Link>
         </li>
         <li>
-          <Link to="Kid">Kid</Link>
+          <Link to="/Kid">Kid</Link>
         </li>
         <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          {cartItems.length}
           <Link to="/cart">
           <FaCartPlus className="inline-block align-middle"/>
           </Link>

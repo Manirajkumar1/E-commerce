@@ -1,4 +1,4 @@
-import Product from "./Product";
+import Product, { HOF } from "./Product";
 import { useEffect, useState } from "react";
 import Skeleton from "./Skeleton";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ const ProductCard = () => {
   const [productList, setProductList] = useState([])
   const [tempProductList, setTempProductList] = useState([])
   const [searchText, setSearchText] = useState("")
+  const [topRated, setTopRated] = useState(false)
 
   useEffect(() => {
     fetchData()
@@ -36,10 +37,22 @@ const ProductCard = () => {
 
   // filter button
   const topRatedProduct = () => {
-    const filteredProduct = productList.filter(product => product.rating.rate >= 4 )
-    setTempProductList(filteredProduct)
+    
+     if(topRated){
+       setTempProductList(productList);
+      setTopRated(false);
+     }else{
+ const filteredProduct = productList.filter(
+        (product) => product.rating.rate >= 4
+      );
+      setTempProductList(filteredProduct);
+      setTopRated(true);
+     }
+    
     
   }
+
+  const HOFComponent = HOF(Product)
 
  
   return productList.length === 0 ? <Skeleton/> : (
@@ -49,11 +62,14 @@ const ProductCard = () => {
         <button onClick={searchTextBtn} className="bg-green-400 hover:bg-green-500 p-2 rounded text-white font-semibold cursor-pointer">Search</button>
       </div>
       <button onClick={topRatedProduct} className="bg-green-400 hover:bg-green-500 text-white  m-2 p-2 rounded-xl cursor-pointer">Top Rated Product</button>
-      <div className="flex w-full flex-wrap justify-center">
+      <div className="flex w-full flex-wrap ">
         {tempProductList.map((product) => {
           return (
             <Link key={product.id} to={`/product/${product.id}`}>
-            <Product  product={product} />
+            
+            {
+              product.rating.rate >=4 ? <HOFComponent product={product}/> :<Product  product={product} />
+            }
             </Link>
           )
         })}
