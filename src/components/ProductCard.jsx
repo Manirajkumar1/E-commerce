@@ -68,7 +68,7 @@ const ProductCard = () => {
             <Link key={product.id} to={`/product/${product.id}`}>
             
             {
-              product.rating.rate >=4 ? <HOFComponent product={product}/> :<Product  product={product} />
+              product.rating.rate >=4 ? <HOFComponent  product={product}/> :<Product  product={product} />
             }
             </Link>
           )

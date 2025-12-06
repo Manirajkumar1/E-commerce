@@ -16,8 +16,8 @@ export default Product
 export const HOF = () => {
   return (props) => {
     return(
-      <div>
-        <span>Best Seller</span>
+      <div className="relative">
+        <span className="absolute top-0 right-0">Best Seller</span>
         <Product {...props}/>
       </div>
     )
