@@ -11,7 +11,7 @@ import ProductCard from "./components/ProductCard.jsx";
 import ProductDetails from "./components/ProductDetails.jsx";
 import About from "./components/About.jsx";
 import { Provider } from "react-redux";
-import appStore from "./store/Store.js"
+import appStore from "./store/Store.jsx"
 
 const router = createBrowserRouter([
   {
