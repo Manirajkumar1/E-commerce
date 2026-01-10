@@ -14,10 +14,10 @@ const Product = ({ product }) => {
       </h1>
 
       <div className="flex items-center justify-center gap-2 mt-2">
-        <p className="text-sm bg-red-400 px-3 py-1 rounded-full text-white">
+        <p className="text-sm bg-green-600 px-3 py-1 rounded-full text-white">
           ⭐ {rating.rate}
         </p>
-        <p className="text-lg font-bold text-green-700">${price}</p>
+        <p className="text-md font-bold text-green-700">${price}</p>
       </div>
     </div>
   );

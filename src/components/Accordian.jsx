@@ -3,8 +3,8 @@ import ListItem from "./ListItem";
 
 function Accordian({title,show, setShow}) {
   return (
-    <div className="w-48 shadow-md">
-      <div className="flex justify-between  p-1">
+    <div className="w-full shadow-md ">
+      <div className="flex justify-between p-1">
         <h1>{title}</h1>
         <button
           onClick={() => setShow(setShow())}
