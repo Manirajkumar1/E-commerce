@@ -52,17 +52,20 @@ const ProductCard = () => {
     
   }
 
+  console.log(productList);
+  
+
   const HOFComponent = HOF(Product)
 
  
   return productList.length === 0 ? <Skeleton/> : (
     <div>
-      <div className="m-3 flex gap-2 ">
+      <div className="m-3  flex gap-2 ">
         <input type="text" onChange={searchInputText} value={searchText}  className="border border-gray-400 outline-none p-2"/>
         <button onClick={searchTextBtn} className="bg-green-400 hover:bg-green-500 p-2 rounded text-white font-semibold cursor-pointer">Search</button>
       </div>
       <button onClick={topRatedProduct} className="bg-green-400 hover:bg-green-500 text-white  m-2 p-2 rounded-xl cursor-pointer">Top Rated Product</button>
-      <div className="flex w-full flex-wrap ">
+      <div className="flex w-full flex-wrap gap-6 p-4 justify-center ">
         {tempProductList.map((product) => {
           return (
             <Link key={product.id} to={`/product/${product.id}`}>
